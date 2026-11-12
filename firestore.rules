@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Reglas para Taju Coffee House
+    // Permite lectura y escritura directa para sincronización como Fuente Única de Verdad (Single Source of Truth)
+    match /users/{userId} {
+      allow read, write: if true;
+    }
+
+    match /loyaltyCards/{cardId} {
+      allow read, write: if true;
+    }
+
+    match /stampHistory/{historyId} {
+      allow read, write: if true;
+    }
+
+    match /admins/{adminId} {
+      allow read, write: if true;
+    }
+
+    match /test/{docId} {
+      allow read, write: if true;
+    }
+
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Perfil de usuario del sistema (administrador o cliente)",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 256 },
+        "displayName": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["admin", "customer"] },
+        "documentType": { "type": "string", "maxLength": 64 },
+        "documentNumber": { "type": "string", "maxLength": 32 },
+        "phone": { "type": "string", "maxLength": 32 },
+        "birthdayDay": { "type": "string", "maxLength": 8 },
+        "birthdayMonth": { "type": "string", "maxLength": 32 },
+        "authProvider": { "type": "string", "enum": ["google", "manual"] },
+        "profileCompleted": { "type": "boolean" },
+        "lastPurchaseDate": { "type": "string", "maxLength": 64 },
+        "password": { "type": "string", "maxLength": 128 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["uid", "email", "displayName", "role"]
+    },
+    "LoyaltyCard": {
+      "title": "LoyaltyCard",
+      "description": "Tarjeta de fidelización digital con 8 sellos y control de concurrencia optimista",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "customerId": { "type": "string", "maxLength": 128 },
+        "customerEmail": { "type": "string", "maxLength": 256 },
+        "customerName": { "type": "string", "maxLength": 100 },
+        "stampsCount": { "type": "number" },
+        "totalCyclesCompleted": { "type": "number" },
+        "lastPurchaseDate": { "type": "string", "maxLength": 64 },
+        "version": { "type": "number" },
+        "updatedAt": { "type": "string", "maxLength": 64 },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["id", "customerId", "customerEmail", "stampsCount", "version"]
+    },
+    "StampHistory": {
+      "title": "StampHistory",
+      "description": "Historial inmutable de compras y asignación de sellos",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "cardId": { "type": "string", "maxLength": 128 },
+        "customerId": { "type": "string", "maxLength": 128 },
+        "adminId": { "type": "string", "maxLength": 128 },
+        "adminEmail": { "type": "string", "maxLength": 256 },
+        "purchaseAmount": { "type": "number" },
+        "stampNumber": { "type": "number" },
+        "cycleNumber": { "type": "number" },
+        "rewardGranted": { "type": "boolean" },
+        "createdAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["cardId", "customerId", "adminId", "purchaseAmount", "stampNumber"]
+    },
+    "AdminRecord": {
+      "title": "AdminRecord",
+      "description": "Registro de usuarios con privilegios administrativos",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string", "maxLength": 256 },
+        "assignedAt": { "type": "string", "maxLength": 64 }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "UserProfile" },
+      "description": "Perfiles públicos de usuario"
+    },
+    "/loyaltyCards/{cardId}": {
+      "schema": { "$ref": "LoyaltyCard" },
+      "description": "Tarjetas de fidelización activas de clientes"
+    },
+    "/stampHistory/{historyId}": {
+      "schema": { "$ref": "StampHistory" },
+      "description": "Registros de compras y sellos otorgados"
+    },
+    "/admins/{adminId}": {
+      "schema": { "$ref": "AdminRecord" },
+      "description": "Documentos de verificación de administradores"
+    }
+  }
+}

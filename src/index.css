@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --taju-orange: #D8470A;
+    --taju-orange-hover: #BF3D07;
+    --taju-orange-light: #FFEDE5;
+    --taju-dark: #16191C;
+    --taju-dark-card: #1B1E23;
+    --taju-dark-slot: #22262C;
+    --taju-gold: #D4AF37;
+    --taju-cream: #FAF6F0;
+    --taju-canvas: #F5F6F8;
+    --taju-text: #1C1E21;
+    --taju-muted: #8E95A0;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #F5F6F8;
+    color: #1C1E21;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+/* Tarjeta de Lujo Taju Coffee House (Fondo Oscuro con Degradado Suave) */
+.taju-dark-card {
+  background: radial-gradient(120% 120% at 50% 0%, #252A32 0%, #17191D 60%, #121417 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Slots de sellos sellados */
+.taju-stamp-active {
+  background: linear-gradient(135deg, #E24F10 0%, #C93E03 100%);
+  box-shadow: 0 4px 12px rgba(216, 71, 10, 0.35);
+}
+
+/* Slot del sello de hoy con resplandor dorado */
+.taju-stamp-today {
+  background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+  box-shadow: 0 0 0 2px #FBBF24, 0 6px 16px rgba(234, 88, 12, 0.45);
+}
+
+/* Slot de premio final */
+.taju-stamp-reward {
+  background: linear-gradient(135deg, #2D2721 0%, #201C18 100%);
+  border: 1.5px solid #F59E0B;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.2);
+}
+
+/* Botón de acción principal Taju Orange */
+.btn-taju-primary {
+  background-color: #D8470A;
+  color: #FFFFFF;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-taju-primary:hover:not(:disabled) {
+  background-color: #BF3D07;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(216, 71, 10, 0.3);
+}
+
+.btn-taju-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Modern Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(142, 149, 160, 0.3);
+  border-radius: 9999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(216, 71, 10, 0.6);
+}
+
+/* Firefox scrollbar support */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(142, 149, 160, 0.3) transparent;
+}
+

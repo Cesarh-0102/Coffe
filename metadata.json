@@ -1,0 +1,8 @@
+{
+  "name": "Vanguard Stamp Club - Loyalty Card Platform",
+  "description": "Aplicación web de fidelización de clientes basada en tarjetas de sellos digitales con arquitectura MVC, Firebase Firestore, prevención de sobrescritura de datos obsoletos, roles admin/cliente, lector QR y validación de compras mínimas de $15.000.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

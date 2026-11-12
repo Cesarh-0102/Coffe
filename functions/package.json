@@ -1,0 +1,25 @@
+{
+  "name": "taju-coffee-retention-functions",
+  "version": "1.0.0",
+  "description": "Firebase Cloud Functions para Retención Automática de Clientes (7 días sin compras) vía FCM Push Notifications - Taju Coffee House",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "firebase-admin": "^12.5.0",
+    "firebase-functions": "^6.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  },
+  "private": true
+}
